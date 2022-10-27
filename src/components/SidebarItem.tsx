@@ -1,25 +1,31 @@
+import { useState } from "react";
 
 type props = {
   name: string;
   icon: string;
 }
 
-const style = {
-  "display": "flex",
-  "align-items": "center",
-  "font-size": 20,
-  "line-height": "1.5rem",
-  "font-weight": "600",
-  "gap": "1rem",
-  "padding": "20px 0"
-}
-
 const SidebarItem = ({name, icon}: props) => {
+  const [isSelected, setIsSelected] = useState(false)
+
+  const clickHandle = () => {
+    setIsSelected((prevState) => !prevState)
+  }
+
+  const style = {
+    "display": "flex",
+    "alignItems": "center",
+    "fontSize": 20,
+    "lineHeight": "1.5rem",
+    "fontWeight": "600",
+    "gap": "1rem",
+    "padding": "20px 0",
+    "borderRight": isSelected ? "3px solid blue" : "none",
+  }
+
   return (
-    <div style={style}>
-      <span className="material-symbols-rounded">
-        {icon}
-      </span>
+    <div style={style} onClick={clickHandle}>
+      <img src={icon}/>
       <p>{name}</p>
     </div>
   )

@@ -1,6 +1,6 @@
 import styles from "./Header.module.css"
-import wrench from "../assets/wrench.png"
-import userIcon from "../assets/userIcon.png"
+import wrench from "../assets/wrench.svg"
+import userIcon from "../assets/ic_person.svg"
 
 const Header = () => {
   return (
